@@ -1,3 +1,7 @@
+---
+name: security-core
+description: Universal security rules for Lovable applications.
+---
 # Security Core
 
 ## Purpose
