@@ -130,6 +130,18 @@ When performing a security review, present findings in this order:
 6. Hardening Recommendations
 7. What Is Already Secure
 8. Recommended Next Actions
+9. Assumptions and Unknowns
+Explicitly list anything that could not be verified, such as:
+
+- Supabase dashboard settings
+- authentication provider settings
+- environment secrets not visible in the repository
+- production infrastructure
+- external payment provider configuration
+- firewall or platform-level rate limits
+- third-party service settings
+
+Do not mark these areas as secure unless they were actually verified.
 
 For each finding explain:
 
@@ -366,8 +378,13 @@ Use server-side or database-side validation for security-sensitive constraints.
 
 Frontend validation is primarily for user experience.
 
-Do not automatically classify missing string length limits as a serious vulnerability unless there is a realistic abuse or availability risk.
+Do not classify missing string length limits as a vulnerability by default.
 
+First determine whether unrestricted input creates a realistic security, availability, cost, or resource-exhaustion risk in the specific application.
+
+If the impact is primarily operational or related to product limits, classify it as Hardening or Needs Review rather than Medium or High.
+
+Only classify it as a security vulnerability when a realistic abuse scenario and meaningful impact are demonstrated.
 ---
 
 # API and Edge Function Security
