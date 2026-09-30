@@ -242,6 +242,31 @@ The report should separate:
 - Recommended next actions
 
 ---
+# Dependency Vulnerabilities
+
+When a dependency scanner reports a vulnerability, do not classify the application risk only from the upstream CVE severity.
+
+Separate:
+
+- dependency advisory severity
+- actual exploitability in this application
+- reachable attack path
+- production exposure
+- recommended remediation priority
+
+Example:
+
+A dependency may have a HIGH severity advisory, but if the vulnerable code path is not used or is only present during build time, classify the application risk separately.
+
+Use labels such as:
+
+- Dependency Advisory: High
+- Application Exploitability: Low
+- Action Priority: Update when practical
+
+Do not present a dependency advisory severity as equivalent to confirmed application exploitability.
+
+---
 
 # Do Not
 
