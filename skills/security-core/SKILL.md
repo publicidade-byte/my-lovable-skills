@@ -552,6 +552,16 @@ If context is insufficient, say:
 
 instead of claiming a vulnerability.
 
+
+## Unverified Security Controls
+
+Never assume that an unverified platform default is sufficient.
+
+If a protection depends on external platform configuration and that configuration was not directly verified, report it as:
+
+NOT VERIFIED
+
+Do not mark it as secure, enabled, or sufficient based only on expected platform behavior.
 ---
 
 # Security Review Questions
@@ -610,6 +620,12 @@ First report:
 Then wait for approval before applying major security changes.
 
 ---
+
+## Production Readiness
+
+Do not state that an application is "safe for production" based solely on repository review.
+
+Instead, state whether any code-level findings block production, and separately list external settings or infrastructure that still require verification.
 
 # Rule When Security Is Uncertain
 
